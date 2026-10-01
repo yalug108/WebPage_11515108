@@ -21,3 +21,1888 @@ header{position:absolute;z-index:10;width:100%;border-bottom:1px solid #fff3;col
 <footer><div class="foot wrap"><a class="brand" href="#top" aria-label="回到首頁"><span class="mark">Z</span><span>湛金咖啡<small>ZHANJIN ROASTERS</small></span></a><span class="contact">hello@zhanjin.coffee</span><div class="social"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="Facebook">FB</a></div></div><div class="copyright wrap">© 2026 ZHANJIN COFFEE ROASTERS</div></footer><div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>const m=document.querySelector('#menu'),l=document.querySelector('#links');m.onclick=()=>{let o=l.classList.toggle('open');m.setAttribute('aria-expanded',o);m.setAttribute('aria-label',o?'關閉選單':'開啟選單');m.textContent=o?'×':'☰'};l.querySelectorAll('a').forEach(a=>a.onclick=()=>{l.classList.remove('open');m.setAttribute('aria-expanded','false');m.textContent='☰'});const t=document.querySelector('#toast');let timer;document.querySelectorAll('.add').forEach(b=>b.onclick=()=>{clearTimeout(timer);t.textContent=b.dataset.name+' 已加入選購清單';t.classList.add('show');timer=setTimeout(()=>t.classList.remove('show'),1800)});const r=document.querySelectorAll('.reveal');if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver'in window))r.forEach(x=>x.classList.add('visible'));else{let ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ob.unobserve(e.target)}}),{threshold:.12});r.forEach(x=>ob.observe(x))}</script>
 </body></html>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="貓太咖啡館 Nekota Cafe — 嚴選莊園級精品咖啡豆，營造毛孩與人共享的頂級手沖咖啡時光。寵物友善空間、專業烘焙單品咖啡與毛孩專屬點心。">
+  <title>貓太咖啡館 Nekota Cafe ｜ 精品咖啡豆 × 寵物友善咖啡空間</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@600;700;900&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Brand Color: 橘色系與高級深焙咖啡色調 */
+      --primary-orange: #FF6B2B;
+      --primary-dark-orange: #E05316;
+      --orange-accent: #FFA726;
+      --orange-glow: rgba(255, 107, 43, 0.18);
+      --orange-subtle: #FFF3EB;
+      
+      --coffee-black: #1E1612;
+      --coffee-dark: #2B1F19;
+      --coffee-mid: #4A3B32;
+      --coffee-light: #7E6B5F;
+      
+      --cream-bg: #FCF9F5;
+      --cream-card: #FFFFFF;
+      --line-color: #EFE6DE;
+      --text-main: #241D18;
+      --text-muted: #6E6259;
+      
+      --shadow-sm: 0 4px 14px rgba(43, 31, 25, 0.06);
+      --shadow-md: 0 12px 28px rgba(43, 31, 25, 0.1);
+      --shadow-lg: 0 20px 48px rgba(224, 83, 22, 0.15);
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--cream-bg);
+      color: var(--text-main);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      transition: all 0.25s ease;
+    }
+
+    .container {
+      width: min(1200px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(252, 249, 245, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line-color);
+      transition: background 0.3s ease;
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 78px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: "Noto Serif TC", serif;
+      font-weight: 700;
+      font-size: 1.45rem;
+      letter-spacing: 0.06em;
+      color: var(--coffee-dark);
+    }
+
+    .logo-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--primary-orange), var(--orange-accent));
+      color: #FFF;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px var(--orange-glow);
+    }
+
+    .brand-text small {
+      display: block;
+      font-family: "Outfit", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--primary-orange);
+      text-transform: uppercase;
+      margin-top: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--coffee-mid);
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary-orange);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--primary-orange);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.25s ease;
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 24px;
+      border-radius: var(--radius-full);
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.25s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-orange), var(--primary-dark-orange));
+      color: #FFF;
+      box-shadow: 0 4px 16px rgba(224, 83, 22, 0.28);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(224, 83, 22, 0.38);
+      color: #FFF;
+    }
+
+    .btn-outline {
+      border: 1.5px solid var(--primary-orange);
+      color: var(--primary-orange);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--orange-subtle);
+      transform: translateY(-2px);
+    }
+
+    .cart-indicator {
+      position: relative;
+      padding: 10px;
+      border-radius: 50%;
+      background: var(--orange-subtle);
+      color: var(--primary-orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      background: var(--primary-orange);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.6rem;
+      color: var(--coffee-dark);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      padding: 70px 0 90px;
+      background: radial-gradient(circle at 85% 20%, rgba(255, 107, 43, 0.12) 0%, transparent 60%),
+                  radial-gradient(circle at 10% 70%, rgba(255, 167, 38, 0.08) 0%, transparent 50%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: var(--orange-subtle);
+      border: 1px solid rgba(255, 107, 43, 0.25);
+      border-radius: var(--radius-full);
+      color: var(--primary-dark-orange);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero-tag svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .hero-title {
+      font-family: "Noto Serif TC", serif;
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      line-height: 1.25;
+      font-weight: 900;
+      color: var(--coffee-black);
+      margin-bottom: 22px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title span.highlight {
+      color: var(--primary-orange);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-title span.highlight::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 6px;
+      width: 100%;
+      height: 10px;
+      background: rgba(255, 167, 38, 0.25);
+      z-index: -1;
+      border-radius: 4px;
+    }
+
+    .hero-desc {
+      font-size: 1.12rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 34px;
+      max-width: 540px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 44px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 36px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line-color);
+    }
+
+    .stat-item h4 {
+      font-family: "Outfit", sans-serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--primary-orange);
+      line-height: 1.2;
+    }
+
+    .stat-item p {
+      font-size: 0.86rem;
+      color: var(--coffee-light);
+    }
+
+    /* Hero Visual Card */
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, #2D201A, #1C130E);
+      border-radius: var(--radius-lg);
+      padding: 44px 38px;
+      color: #FFF;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 107, 43, 0.25);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 107, 43, 0.35) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .bean-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--orange-accent);
+      background: rgba(255, 167, 38, 0.12);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 167, 38, 0.25);
+    }
+
+    .coffee-illustration {
+      text-align: center;
+      margin: 20px 0 30px;
+      position: relative;
+    }
+
+    .coffee-cup-svg {
+      width: 140px;
+      height: 140px;
+      filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.4));
+    }
+
+    .steam-line {
+      animation: steamAnim 3s infinite ease-in-out;
+    }
+
+    .steam-line-2 {
+      animation: steamAnim 3s infinite 1.5s ease-in-out;
+    }
+
+    @keyframes steamAnim {
+      0% { opacity: 0; transform: translateY(0); }
+      50% { opacity: 0.8; transform: translateY(-8px) scaleX(1.1); }
+      100% { opacity: 0; transform: translateY(-16px); }
+    }
+
+    .hero-card-content h3 {
+      font-family: "Noto Serif TC", serif;
+      font-size: 1.55rem;
+      margin-bottom: 8px;
+      color: #FFF;
+    }
+
+    .hero-card-content p {
+      font-size: 0.9rem;
+      color: #D1C5BD;
+      margin-bottom: 22px;
+    }
+
+    .card-footer-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .flavor-pills {
+      display: flex;
+      gap: 6px;
+    }
+
+    .flavor-pill {
+      font-size: 0.75rem;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      color: #E6DDD6;
+    }
+
+    .price-tag {
+      font-family: "Outfit", sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--orange-accent);
+    }
+
+    /* Floating pet sticker */
+    .floating-pet-tag {
+      position: absolute;
+      bottom: -18px;
+      left: -20px;
+      background: #FFF;
+      color: var(--coffee-dark);
+      padding: 12px 18px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid var(--line-color);
+    }
+
+    .pet-emoji-icon {
+      width: 34px;
+      height: 34px;
+      background: var(--orange-subtle);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-orange);
+    }
+
+    /* Section Commons */
+    section {
+      padding: 95px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 60px;
+    }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-family: "Outfit", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary-orange);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: "Noto Serif TC", serif;
+      font-size: clamp(2rem, 3.2vw, 2.7rem);
+      font-weight: 700;
+      color: var(--coffee-black);
+      line-height: 1.35;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      font-size: 1.02rem;
+      color: var(--text-muted);
+    }
+
+    /* Feature Pillars (品牌特色與用途) */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .feature-card {
+      background: var(--cream-card);
+      padding: 38px 30px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--line-color);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(255, 107, 43, 0.4);
+    }
+
+    .feature-icon-box {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      background: var(--orange-subtle);
+      color: var(--primary-orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.28rem;
+      font-weight: 700;
+      color: var(--coffee-dark);
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+
+    /* Coffee Beans Showcase (高級咖啡豆展售) */
+    .beans-section {
+      background: #FFF;
+      border-top: 1px solid var(--line-color);
+      border-bottom: 1px solid var(--line-color);
+    }
+
+    .beans-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 45px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--coffee-mid);
+      background: var(--cream-bg);
+      border: 1px solid var(--line-color);
+    }
+
+    .tab-btn.active,
+    .tab-btn:hover {
+      background: var(--primary-orange);
+      color: #FFF;
+      border-color: var(--primary-orange);
+    }
+
+    .beans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .bean-card {
+      background: var(--cream-bg);
+      border-radius: var(--radius-md);
+      padding: 30px;
+      border: 1px solid var(--line-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .bean-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(255, 107, 43, 0.4);
+    }
+
+    .bean-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .roast-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    .roast-light {
+      background: #FFF3EB;
+      color: #E05316;
+    }
+
+    .roast-medium {
+      background: #EFEBE9;
+      color: #5D4037;
+    }
+
+    .roast-dark {
+      background: #3E2723;
+      color: #FFF;
+    }
+
+    .bean-origin {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--coffee-light);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .bean-name {
+      font-family: "Noto Serif TC", serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--coffee-black);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .bean-process {
+      font-size: 0.85rem;
+      color: var(--primary-orange);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .bean-notes {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      background: #FFF;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 22px;
+      border-left: 3px solid var(--primary-orange);
+    }
+
+    .bean-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 18px;
+      border-top: 1px dashed var(--line-color);
+    }
+
+    .bean-price {
+      font-family: "Outfit", sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--coffee-dark);
+    }
+
+    .bean-price span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .btn-buy {
+      padding: 8px 18px;
+      background: var(--primary-orange);
+      color: #FFF;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-buy:hover {
+      background: var(--primary-dark-orange);
+    }
+
+    /* Pet Friendly Space (寵物友善空間與設施) */
+    .pet-section {
+      background: radial-gradient(circle at 10% 30%, rgba(255, 107, 43, 0.08) 0%, transparent 50%), var(--cream-bg);
+    }
+
+    .pet-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .pet-visual-box {
+      background: linear-gradient(135deg, #FFF, var(--orange-subtle));
+      border-radius: var(--radius-lg);
+      padding: 44px;
+      border: 1px solid var(--line-color);
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+
+    .pet-amenities-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .pet-amenity-item {
+      background: #FFF;
+      padding: 18px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line-color);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pet-amenity-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--orange-subtle);
+      color: var(--primary-orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .pet-amenity-text h5 {
+      font-size: 0.95rem;
+      color: var(--coffee-dark);
+      margin-bottom: 2px;
+    }
+
+    .pet-amenity-text p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .pet-rules-box {
+      margin-top: 26px;
+      padding: 20px 24px;
+      background: #FFF;
+      border-radius: var(--radius-md);
+      border-left: 4px solid var(--primary-orange);
+    }
+
+    .pet-rules-box h4 {
+      font-size: 0.98rem;
+      color: var(--coffee-dark);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pet-rules-box p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Menu / Attract Consumption Callout (吸引客戶消費咖啡) */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--coffee-dark), var(--coffee-black));
+      color: #FFF;
+      border-radius: var(--radius-lg);
+      padding: 65px 60px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 80px;
+      border: 1px solid rgba(255, 107, 43, 0.3);
+    }
+
+    .cta-banner::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      bottom: -80px;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(255, 107, 43, 0.28) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      max-width: 650px;
+    }
+
+    .cta-tag {
+      color: var(--orange-accent);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .cta-title {
+      font-family: "Noto Serif TC", serif;
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      margin-bottom: 18px;
+      line-height: 1.3;
+    }
+
+    .cta-desc {
+      font-size: 1.05rem;
+      color: #D6CCC4;
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+
+    .cta-perks {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 34px;
+      flex-wrap: wrap;
+    }
+
+    .cta-perk {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: #FFF;
+    }
+
+    .cta-perk svg {
+      color: var(--primary-orange);
+    }
+
+    /* Booking & Store Info */
+    .booking-section {
+      background: #FFF;
+      border-top: 1px solid var(--line-color);
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 60px;
+    }
+
+    .info-card {
+      background: var(--cream-bg);
+      border-radius: var(--radius-md);
+      padding: 38px;
+      border: 1px solid var(--line-color);
+    }
+
+    .info-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 26px;
+    }
+
+    .info-icon {
+      width: 44px;
+      height: 44px;
+      background: #FFF;
+      color: var(--primary-orange);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .info-detail h5 {
+      font-size: 0.92rem;
+      color: var(--coffee-light);
+      margin-bottom: 4px;
+    }
+
+    .info-detail p {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--coffee-dark);
+    }
+
+    .booking-form-box {
+      background: var(--cream-card);
+      border: 1px solid var(--line-color);
+      border-radius: var(--radius-md);
+      padding: 40px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--coffee-dark);
+      margin-bottom: 8px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--line-color);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      background: var(--cream-bg);
+      transition: border-color 0.25s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary-orange);
+      background: #FFF;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--coffee-black);
+      color: #9E8E84;
+      padding: 70px 0 35px;
+      font-size: 0.9rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 50px;
+      margin-bottom: 50px;
+    }
+
+    .footer-brand .brand-logo {
+      color: #FFF;
+      margin-bottom: 16px;
+    }
+
+    .footer-desc {
+      max-width: 380px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      color: #A3948A;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-btn {
+      width: 38px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      transition: all 0.25s ease;
+    }
+
+    .social-btn:hover {
+      background: var(--primary-orange);
+      transform: translateY(-2px);
+    }
+
+    .footer-title {
+      color: #FFF;
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-orange);
+    }
+
+    .footer-bottom {
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* Toast Notification */
+    .toast-notice {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: var(--coffee-black);
+      color: #FFF;
+      padding: 14px 24px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      border-left: 4px solid var(--primary-orange);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 1000;
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      font-size: 0.95rem;
+    }
+
+    .toast-notice.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+      .features-grid,
+      .beans-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .pet-grid,
+      .booking-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links,
+      .nav-actions .btn-outline {
+        display: none;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .nav-links.active-mobile {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 78px;
+        left: 0;
+        width: 100%;
+        background: #FFF;
+        padding: 24px;
+        box-shadow: var(--shadow-md);
+        border-bottom: 1px solid var(--line-color);
+        gap: 18px;
+      }
+      .features-grid,
+      .beans-grid {
+        grid-template-columns: 1fr;
+      }
+      .pet-amenities-list {
+        grid-template-columns: 1fr;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .cta-banner {
+        padding: 40px 28px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-wrap">
+      <a href="#top" class="brand-logo" aria-label="回到貓太咖啡館首頁">
+        <div class="logo-badge">
+          <!-- Paw + Bean Minimal SVG -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a4 4 0 0 0-4 4c0 1.6.9 3 2.2 3.6L9 14a3 3 0 0 0 6 0l-1.2-4.4C15.1 9 16 7.6 16 6a4 4 0 0 0-4-4z"/>
+            <circle cx="7" cy="18" r="2"/>
+            <circle cx="17" cy="18" r="2"/>
+            <circle cx="12" cy="19" r="2"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          貓太咖啡館
+          <small>Nekota Specialty Coffee</small>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">品牌理念</a></li>
+        <li><a href="#beans">嚴選咖啡豆</a></li>
+        <li><a href="#pet-friendly">寵物友善空間</a></li>
+        <li><a href="#experience">品飲與消費</a></li>
+        <li><a href="#booking">門市與預約</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#beans" class="cart-indicator" aria-label="選購清單">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
+        <a href="#booking" class="btn btn-primary">預約毛孩咖啡席</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="切換導航選單">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text-content">
+          <div class="hero-tag">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            寵物友善 × 莊園級精品單品手沖
+          </div>
+
+          <h1 class="hero-title">
+            讓頂級手沖香氣，<br>
+            溫暖你與毛孩的<span class="highlight">每個午後時光</span>
+          </h1>
+
+          <p class="hero-desc">
+            貓太咖啡館專為「熱愛極致咖啡」與「珍視毛孩陪伴」的你打造。堅持選用 SCA 85 分以上莊園級精品生豆、小批次精密烘焙，在無壓舒適的寵物友善空間裡，讓生活因醇香而慢下來。
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#beans" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="10 8 16 12 10 16 10 8"></polygon>
+              </svg>
+              探索當季莊園豆
+            </a>
+            <a href="#pet-friendly" class="btn btn-outline">了解友善毛孩設施</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h4>85+</h4>
+              <p>SCA 精品杯測分數</p>
+            </div>
+            <div class="stat-item">
+              <h4>100%</h4>
+              <p>單一莊園阿拉比卡豆</p>
+            </div>
+            <div class="stat-item">
+              <h4>友善首選</h4>
+              <p>寵物共融無拘束座席</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Display -->
+        <div class="hero-visual">
+          <div class="hero-card">
+            <div class="hero-card-header">
+              <span class="bean-badge">當季主打莊園豆</span>
+              <span style="color: var(--orange-accent); font-size: 0.82rem; font-weight:600;">限量微批次</span>
+            </div>
+
+            <div class="coffee-illustration">
+              <svg class="coffee-cup-svg" viewBox="0 0 100 100" fill="none">
+                <!-- Steam -->
+                <path class="steam-line" d="M42 22 Q40 14 43 7" stroke="#FFA726" stroke-width="2.5" stroke-linecap="round"/>
+                <path class="steam-line-2" d="M50 20 Q53 12 49 5" stroke="#FF6B2B" stroke-width="2.5" stroke-linecap="round"/>
+                <path class="steam-line" d="M58 22 Q56 14 59 7" stroke="#FFA726" stroke-width="2.5" stroke-linecap="round"/>
+                <!-- Saucer -->
+                <ellipse cx="50" cy="85" rx="42" ry="7" fill="#E65100" opacity="0.8"/>
+                <!-- Cup Body -->
+                <path d="M22 36 L28 75 C29 80 35 83 42 83 L58 83 C65 83 71 80 72 75 L78 36 Z" fill="#FFF"/>
+                <!-- Coffee liquid surface -->
+                <ellipse cx="50" cy="36" rx="28" ry="7" fill="#3E2723"/>
+                <ellipse cx="50" cy="36" rx="24" ry="5.5" fill="#5D4037"/>
+                <!-- Cat paw latte art -->
+                <circle cx="50" cy="36" r="3.2" fill="#FFE0B2"/>
+                <circle cx="45" cy="32" r="1.4" fill="#FFE0B2"/>
+                <circle cx="50" cy="30.5" r="1.4" fill="#FFE0B2"/>
+                <circle cx="55" cy="32" r="1.4" fill="#FFE0B2"/>
+                <!-- Cup Handle -->
+                <path d="M74 44 C84 44 87 64 71 67" stroke="#FFF" stroke-width="6" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <div class="hero-card-content">
+              <h3>貓太・琥珀暖陽配方</h3>
+              <p>衣索比亞 耶加雪菲 × 哥倫比亞 薇拉莊園</p>
+            </div>
+
+            <div class="card-footer-info">
+              <div class="flavor-pills">
+                <span class="flavor-pill">蜜柑果香</span>
+                <span class="flavor-pill">焦糖甜感</span>
+                <span class="flavor-pill">白花尾韻</span>
+              </div>
+              <div class="price-tag">NT$ 480 <span style="font-size:0.75rem; color:#A3948A;">/ 半磅</span></div>
+            </div>
+          </div>
+
+          <!-- Floating Pet Badge -->
+          <div class="floating-pet-tag">
+            <div class="pet-emoji-icon">🐾</div>
+            <div>
+              <strong>歡迎各體型毛孩同行</strong>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">免費提供純淨鮮水與毛孩專屬肉乾小食</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brand Philosophy / Features (規格：用途、目標受眾、品牌風格) -->
+    <section id="about" class="features-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">OUR PHILOSOPHY</span>
+          <h2 class="section-title">高級咖啡與毛孩陪伴的完美交集</h2>
+          <p class="section-desc">貓太咖啡館深信，最美好的生活情調，是手中有一杯極致講究的精品手沖，腳邊有最心愛的毛孩依偎安睡。</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <h3>極品莊園・小批次烘焙</h3>
+            <p>嚴選世界各產區當季新鮮生豆，透過烘焙師量身調製最佳烘焙曲線，忠實展現花香、果酸與圓潤甘甜的風味層次。</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <h3>毛孩友善・無壓舒心空間</h3>
+            <p>全店鋪設防滑耐磨地板、專屬桌邊牽繩固定扣環，提供無乳糖狗狗卡布奇諾（Puppuccino）與純肉烘烤點心。</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <h3>專業咖啡師・極致手沖展演</h3>
+            <p>依據每日溫濕度校正水溫、研磨顆粒與注水速度，每一杯出品皆為你細心解說產區風土故事與最佳品飲溫度。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coffee Beans Showcase (規格：品牌風格 高級咖啡豆、功能 吸引客戶消費咖啡) -->
+    <section id="beans" class="beans-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">COFFEE COLLECTION</span>
+          <h2 class="section-title">貓太嚴選・莊園精品豆</h2>
+          <p class="section-desc">在家也能復刻貓太吧台的頂級香氣。產地直送、每週現烘，點選即可加入選購。</p>
+        </div>
+
+        <div class="beans-tabs">
+          <button class="tab-btn active" onclick="filterBeans('all', this)">全部咖啡豆</button>
+          <button class="tab-btn" onclick="filterBeans('light', this)">淺焙・清亮果香</button>
+          <button class="tab-btn" onclick="filterBeans('medium', this)">中焙・平衡甜感</button>
+          <button class="tab-btn" onclick="filterBeans('blend', this)">貓太獨家特調</button>
+        </div>
+
+        <div class="beans-grid" id="beansContainer">
+          <!-- Bean Card 1 -->
+          <article class="bean-card" data-category="light">
+            <div>
+              <div class="bean-header">
+                <span class="roast-badge roast-light">淺焙 Light Roast</span>
+                <span style="font-size:0.75rem; color:var(--primary-orange); font-weight:700;">★ 88分</span>
+              </div>
+              <p class="bean-origin">衣索比亞 耶加雪菲</p>
+              <h3 class="bean-name">花仙子・日曬 G1</h3>
+              <p class="bean-process">精緻日曬法 · 慢速乾燥</p>
+              <div class="bean-notes">
+                <strong>風味筆記：</strong>橙花芳香、熱帶芒果、佛手柑、清雅蜂蜜尾韻
+              </div>
+            </div>
+            <div class="bean-bottom">
+              <div class="bean-price">NT$ 520 <span>/ 半磅</span></div>
+              <button class="btn-buy" onclick="addToCart('花仙子・日曬 G1', 520)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 5v14M5 12h14"/>
+                </svg>
+                購買
+              </button>
+            </div>
+          </article>
+
+          <!-- Bean Card 2 -->
+          <article class="bean-card" data-category="light">
+            <div>
+              <div class="bean-header">
+                <span class="roast-badge roast-light">淺中焙 Light-Medium</span>
+                <span style="font-size:0.75rem; color:var(--primary-orange); font-weight:700;">★ 91分瑰夏</span>
+              </div>
+              <p class="bean-origin">巴拿馬 波奎特</p>
+              <h3 class="bean-name">翡翠莊園 綠標 Geisha</h3>
+              <p class="bean-process">水洗處理法 · 高海拔微批次</p>
+              <div class="bean-notes">
+                <strong>風味筆記：</strong>高雅茉莉、白桃汁、檸檬草、荔枝多汁甜潤
+              </div>
+            </div>
+            <div class="bean-bottom">
+              <div class="bean-price">NT$ 860 <span>/ 半磅</span></div>
+              <button class="btn-buy" onclick="addToCart('翡翠莊園 綠標 Geisha', 860)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 5v14M5 12h14"/>
+                </svg>
+                購買
+              </button>
+            </div>
+          </article>
+
+          <!-- Bean Card 3 -->
+          <article class="bean-card" data-category="medium">
+            <div>
+              <div class="bean-header">
+                <span class="roast-badge roast-medium">中焙 Medium Roast</span>
+                <span style="font-size:0.75rem; color:var(--coffee-mid); font-weight:700;">★ 87分</span>
+              </div>
+              <p class="bean-origin">哥倫比亞 娜玲瓏</p>
+              <h3 class="bean-name">聖塔費・雙重厭氧蜜處理</h3>
+              <p class="bean-process">百香果慢速蜜處理法</p>
+              <div class="bean-notes">
+                <strong>風味筆記：</strong>紅蘋果酸甜、太妃糖、榛果巧克力、絲滑圓潤
+              </div>
+            </div>
+            <div class="bean-bottom">
+              <div class="bean-price">NT$ 460 <span>/ 半磅</span></div>
+              <button class="btn-buy" onclick="addToCart('聖塔費・雙重厭氧蜜處理', 460)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 5v14M5 12h14"/>
+                </svg>
+                購買
+              </button>
+            </div>
+          </article>
+
+          <!-- Bean Card 4 -->
+          <article class="bean-card" data-category="blend">
+            <div>
+              <div class="bean-header">
+                <span class="roast-badge roast-medium">中深焙 Medium-Dark</span>
+                <span style="font-size:0.75rem; color:var(--primary-orange); font-weight:700;">★ 人氣冠軍</span>
+              </div>
+              <p class="bean-origin">貓太原創配方</p>
+              <h3 class="bean-name">貓咪呼嚕・暖心濃郁配方</h3>
+              <p class="bean-process">瓜地馬拉 × 巴西 喜拉朵</p>
+              <div class="bean-notes">
+                <strong>風味筆記：</strong>黑巧克力、烤杏仁碎、焦糖、極佳厚實度，製作拿鐵絕配
+              </div>
+            </div>
+            <div class="bean-bottom">
+              <div class="bean-price">NT$ 420 <span>/ 半磅</span></div>
+              <button class="btn-buy" onclick="addToCart('貓咪呼嚕配方豆', 420)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 5v14M5 12h14"/>
+                </svg>
+                購買
+              </button>
+            </div>
+          </article>
+
+          <!-- Bean Card 5 -->
+          <article class="bean-card" data-category="medium">
+            <div>
+              <div class="bean-header">
+                <span class="roast-badge roast-medium">中焙 Medium Roast</span>
+                <span style="font-size:0.75rem; color:var(--coffee-mid); font-weight:700;">★ 86分</span>
+              </div>
+              <p class="bean-origin">肯亞 涅里產區</p>
+              <h3 class="bean-name">珍珠圓豆 PB・黑醋栗特選</h3>
+              <p class="bean-process">肯亞雙重水洗處理</p>
+              <div class="bean-notes">
+                <strong>風味筆記：</strong>黑醋栗、烏龍茶感、葡萄柚酸甜、甘蔗甜感
+              </div>
+            </div>
+            <div class="bean-bottom">
+              <div class="bean-price">NT$ 490 <span>/ 半磅</span></div>
+              <button class="btn-buy" onclick="addToCart('肯亞珍珠圓豆 PB', 490)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 5v14M5 12h14"/>
+                </svg>
+                購買
+              </button>
+            </div>
+          </article>
+
+          <!-- Bean Card 6 -->
+          <article class="bean-card" data-category="blend">
+            <div>
+              <div class="bean-header">
+                <span class="roast-badge roast-light">淺焙 Light Roast</span>
+                <span style="font-size:0.75rem; color:var(--primary-orange); font-weight:700;">★ 主理人特製</span>
+              </div>
+              <p class="bean-origin">貓太特調花果配方</p>
+              <h3 class="bean-name">橘貓跳躍・晨光果香配方</h3>
+              <p class="bean-process">衣索比亞 日曬＋水洗 黃金比例</p>
+              <div class="bean-notes">
+                <strong>風味筆記：</strong>亮麗柑橘、甜水蜜桃、白花香氣，早晨第一杯的清爽喚醒
+              </div>
+            </div>
+            <div class="bean-bottom">
+              <div class="bean-price">NT$ 480 <span>/ 半磅</span></div>
+              <button class="btn-buy" onclick="addToCart('橘貓跳躍配方豆', 480)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 5v14M5 12h14"/>
+                </svg>
+                購買
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pet Friendly Environment Section (規格：推廣寵物友善咖啡) -->
+    <section id="pet-friendly" class="pet-section">
+      <div class="container">
+        <div class="pet-grid">
+          <div>
+            <span class="section-eyebrow">PET FRIENDLY OASIS</span>
+            <h2 class="section-title">給毛孩五星級的<br>自在品飲空間</h2>
+            <p class="section-desc" style="margin-bottom: 24px;">
+              我們不只歡迎毛孩，更將寵物安全與舒適納入空間設計的每個環節。獨立間隔座席、定時臭氧除味消毒，讓愛貓愛犬不受打擾，安心享受被香氣包圍的午後時光。
+            </p>
+
+            <div class="pet-amenities-list">
+              <div class="pet-amenity-item">
+                <div class="pet-amenity-icon">🐾</div>
+                <div class="pet-amenity-text">
+                  <h5>無乳糖毛孩卡布</h5>
+                  <p>純天然無乳糖鮮奶打發泡沫</p>
+                </div>
+              </div>
+              <div class="pet-amenity-item">
+                <div class="pet-amenity-icon">🥩</div>
+                <div class="pet-amenity-text">
+                  <h5>現烘純肉乾小點</h5>
+                  <p>人食級無鹽雞胸肉／草飼牛點心</p>
+                </div>
+              </div>
+              <div class="pet-amenity-item">
+                <div class="pet-amenity-icon">🪑</div>
+                <div class="pet-amenity-text">
+                  <h5>防滑坐墊與牽繩扣</h5>
+                  <p>桌邊專屬穩固扣環防掙脫</p>
+                </div>
+              </div>
+              <div class="pet-amenity-item">
+                <div class="pet-amenity-icon">💧</div>
+                <div class="pet-amenity-text">
+                  <h5>RO 純淨循環水碗</h5>
+                  <p>入座即送專屬消毒水碗</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="pet-rules-box">
+              <h4>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                貓太友善公約（守護彼此的安心環境）
+              </h4>
+              <p>為了確保所有毛孩與客人的愉悅體驗，公狗進店請使用禮貌帶，小型犬或貓咪可置於推車或專用提袋中。店內設有專人定時清潔消毒。</p>
+            </div>
+          </div>
+
+          <div class="pet-visual-box">
+            <h3 style="font-family:'Noto Serif TC', serif; font-size:1.6rem; color:var(--coffee-dark); margin-bottom:14px;">
+              「在貓太，毛孩也能擁有專屬下午茶儀式」
+            </h3>
+            <p style="font-size:0.95rem; color:var(--text-muted); line-height: 1.8; margin-bottom: 24px;">
+              我們特別邀請獸醫營養顧問研發「貓太毛孩特調點心」，無化學添加物、無糖無鹽，讓你在享受手沖咖啡風味的同時，毛孩也能大快朵頤，共享尊榮寵愛。
+            </p>
+
+            <div style="background:#FFF; padding:20px; border-radius:var(--radius-md); border:1px solid var(--line-color); margin-bottom:18px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <strong style="color:var(--coffee-dark); font-size:1.05rem;">毛孩專屬 Puppuccino + 鮮肉烘焙片</strong>
+                <span style="color:var(--primary-orange); font-weight:700; font-family:'Outfit';">內用招待券免費送</span>
+              </div>
+              <p style="font-size:0.85rem; color:var(--text-muted);">凡預約訂位毛孩席，同行毛孩即可免費獲贈乙份迎賓鮮食小點心！</p>
+            </div>
+
+            <a href="#booking" class="btn btn-primary" style="width: 100%;">
+              立即為毛孩預訂貴賓席
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Attract Consumption Banner (規格：功能 吸引客戶消費咖啡) -->
+    <section id="experience" style="padding-bottom: 0;">
+      <div class="container">
+        <div class="cta-banner">
+          <div class="cta-content">
+            <p class="cta-tag">LIMITED SPECIAL OFFER · 本月限定優惠</p>
+            <h2 class="cta-title">首次線上購豆，享滿額免運<br>再贈「貓太手作毛孩鮮肉條」</h2>
+            <p class="cta-desc">
+              單筆消費滿 NT$ 800 即享黑貓低溫免運，並隨箱附贈精選單品掛耳試飲包 2 入與貓太手工烘乾純雞肉肉乾乙份。在家細品莊園手沖，毛孩一起開心！
+            </p>
+
+            <div class="cta-perks">
+              <div class="cta-perk">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                每週二、五批次新鮮現烘
+              </div>
+              <div class="cta-perk">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                可免費代客研磨（手沖/義式）
+              </div>
+              <div class="cta-perk">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                附贈產區杯測風味履歷卡
+              </div>
+            </div>
+
+            <a href="#beans" class="btn btn-primary" style="padding: 13px 32px; font-size: 1.05rem;">
+              立刻選購精品豆
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking & Store Information -->
+    <section id="booking" class="booking-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">VISIT & CONTACT</span>
+          <h2 class="section-title">來貓太，喝一杯好咖啡</h2>
+          <p class="section-desc">歡迎帶上你的愛寵，或自己帶著一本好書前來。我們為你預留寧靜又溫暖的角落。</p>
+        </div>
+
+        <div class="booking-grid">
+          <!-- Store Info -->
+          <div class="info-card">
+            <h3 style="font-family:'Noto Serif TC', serif; font-size:1.5rem; color:var(--coffee-dark); margin-bottom:24px;">門市資訊</h3>
+            
+            <div class="info-item">
+              <div class="info-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div class="info-detail">
+                <h5>門市地址</h5>
+                <p>台北市大安區溫州街 74 巷 16 號（近捷運台電大樓站）</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <div class="info-detail">
+                <h5>營業時間</h5>
+                <p>週一至週日 10:30 – 19:30（週三咖啡烘焙日公休）</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </div>
+              <div class="info-detail">
+                <h5>聯絡電話 / 預約專線</h5>
+                <p>(02) 2368-8899</p>
+              </div>
+            </div>
+
+            <div style="background:var(--orange-subtle); padding:16px; border-radius:var(--radius-sm); border:1px solid rgba(255,107,43,0.2); margin-top:20px;">
+              <small style="color:var(--primary-dark-orange); font-weight:700;">★ 貼心提醒：</small>
+              <p style="font-size:0.85rem; color:var(--coffee-mid); margin-top:4px;">假日毛孩預約席次有限，建議提前 1 至 3 日透過右側表單或電話預約保留舒適席位。</p>
+            </div>
+          </div>
+
+          <!-- Reservation Form -->
+          <div class="booking-form-box">
+            <h3 style="font-family:'Noto Serif TC', serif; font-size:1.5rem; color:var(--coffee-dark); margin-bottom:18px;">預約品飲 / 毛孩席</h3>
+            <form id="bookingForm" onsubmit="handleBooking(event)">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">預約人姓名 *</label>
+                  <input type="text" id="name" class="form-control" placeholder="例：林先生 / 陳小姐" required>
+                </div>
+                <div class="form-group">
+                  <label for="phone">聯絡手機 *</label>
+                  <input type="tel" id="phone" class="form-control" placeholder="0912-345-678" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="date">預約日期 *</label>
+                  <input type="date" id="date" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="time">預約時段 *</label>
+                  <select id="time" class="form-control" required>
+                    <option value="">選擇時段</option>
+                    <option value="11:00">11:00 早午場</option>
+                    <option value="13:30">13:30 下午茶場</option>
+                    <option value="15:30">15:30 下午茶場</option>
+                    <option value="17:30">17:30 傍晚場</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="guests">成人人數 *</label>
+                  <select id="guests" class="form-control">
+                    <option value="1">1 位</option>
+                    <option value="2" selected>2 位</option>
+                    <option value="3">3 位</option>
+                    <option value="4">4 位以上</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="pets">同行毛孩種類與數量</label>
+                  <input type="text" id="pets" class="form-control" placeholder="例：柴犬 1 隻 / 貓咪 1 隻">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="notes">特殊需求或備註</label>
+                <textarea id="notes" class="form-control" rows="3" placeholder="例如：需要靠窗推車位置、毛孩較害羞需安靜角落等"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width:100%; padding:14px; font-size:1.05rem;">
+                確認提交預約
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="logo-badge">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a4 4 0 0 0-4 4c0 1.6.9 3 2.2 3.6L9 14a3 3 0 0 0 6 0l-1.2-4.4C15.1 9 16 7.6 16 6a4 4 0 0 0-4-4z"/>
+                <circle cx="7" cy="18" r="2"/>
+                <circle cx="17" cy="18" r="2"/>
+                <circle cx="12" cy="19" r="2"/>
+              </svg>
+            </div>
+            <div class="brand-text">
+              貓太咖啡館
+              <small style="color:var(--orange-accent);">NEKOTA COFFEE</small>
+            </div>
+          </div>
+          <p class="footer-desc">
+            推廣寵物友善精品咖啡文化。以專業熱忱烘焙頂級咖啡豆，營造人與毛孩心靈共鳴的溫暖據點。
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn" aria-label="Instagram">IG</a>
+            <a href="#" class="social-btn" aria-label="Facebook">FB</a>
+            <a href="#" class="social-btn" aria-label="Line">LINE</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">快速導覽</h4>
+          <ul class="footer-links">
+            <li><a href="#about">品牌理念與特色</a></li>
+            <li><a href="#beans">莊園精品咖啡豆</a></li>
+            <li><a href="#pet-friendly">寵物友善設施公約</a></li>
+            <li><a href="#experience">線上購豆優惠</a></li>
+            <li><a href="#booking">門市與毛孩席預約</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">服務資訊</h4>
+          <ul class="footer-links">
+            <li>電話：(02) 2368-8899</li>
+            <li>信箱：hello@nekotacafe.tw</li>
+            <li>地址：台北市大安區溫州街 74 巷 16 號</li>
+            <li>統一編號：91515108</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 貓太咖啡館 Nekota Specialty Coffee. All rights reserved.</div>
+        <div style="font-size:0.8rem; color:#7E6B5F;">規格依據：WebSpec_11515108/specs/outline.md</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification element -->
+  <div class="toast-notice" id="toastNotice">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary-orange);">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span id="toastMsg">成功加入選購！</span>
+  </div>
+
+  <!-- JavaScript Interaction -->
+  <script>
+    // 購物計數與通知
+    let cartTotal = 0;
+    const cartCountEl = document.getElementById('cartCount');
+    const toastNotice = document.getElementById('toastNotice');
+    const toastMsg = document.getElementById('toastMsg');
+    let toastTimer = null;
+
+    function addToCart(beanName, price) {
+      cartTotal++;
+      cartCountEl.textContent = cartTotal;
+      
+      // 顯示通知
+      showToast(`已將「${beanName}」加入選購清單！(NT$ ${price})`);
+    }
+
+    function showToast(message) {
+      if (toastTimer) clearTimeout(toastTimer);
+      toastMsg.textContent = message;
+      toastNotice.classList.add('show');
+      toastTimer = setTimeout(() => {
+        toastNotice.classList.remove('show');
+      }, 2500);
+    }
+
+    // 咖啡豆分類篩選
+    function filterBeans(category, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.bean-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // 手機版漢堡選單切換
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active-mobile');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active-mobile');
+      });
+    });
+
+    // 表單預約處理
+    function handleBooking(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const date = document.getElementById('date').value;
+      const time = document.getElementById('time').value;
+      showToast(`感謝 ${name}！已收到您在 ${date} ${time} 的毛孩席預約，專人將儘速與您確認。`);
+      e.target.reset();
+    }
+
+    // 設置預約日期最小值為今天
+    const dateInput = document.getElementById('date');
+    if (dateInput) {
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.min = today;
+    }
+  </script>
+</body>
+</html>
