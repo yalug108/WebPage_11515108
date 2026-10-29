@@ -7,7 +7,7 @@
   <meta name="description" content="貓太咖啡館，為貓咪與咖啡愛好者打造的溫暖寵物友善空間。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;600;700;800;900&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;600;700;800;900&family=Playfair+Display:wght@500;600;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --coffee: #3a241b;
@@ -24,6 +24,8 @@
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     html {
@@ -174,7 +176,7 @@
 
     .paw {
       color: var(--peach);
-      font-size: 25px;
+      font-size: 20px;
       line-height: 1;
       display: inline-grid;
       place-items: center;
@@ -289,8 +291,8 @@
       z-index: 2;
       width: 100%;
       display: grid;
-      grid-template-columns: 1.02fr 0.98fr;
-      gap: 50px;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 45px;
       align-items: center;
     }
 
@@ -352,7 +354,7 @@
       margin-right: 12px;
     }
 
-    /* Hero 右欄既有圖片 */
+    /* Hero 右欄既有圖片 (寬 400px，高 300px) */
     .hero-visual {
       height: 440px;
       position: relative;
@@ -398,6 +400,7 @@
       font: 11px "Playfair Display", serif;
       letter-spacing: 0.12em;
       backdrop-filter: blur(4px);
+      border-radius: 2px;
     }
 
     .visual-label strong {
@@ -475,6 +478,7 @@
       line-height: 1.6;
       box-shadow: var(--shadow);
       border-radius: 2px;
+      max-width: 220px;
     }
 
     .story-copy p {
@@ -541,14 +545,27 @@
       box-shadow: var(--shadow);
     }
 
-    .menu-card::after {
-      content: "✦";
+    /* 菜單卡片右上有咖啡豆線條裝飾 */
+    .bean-line {
       position: absolute;
       right: 24px;
-      top: 20px;
-      color: var(--peach);
-      font-size: 22px;
-      opacity: 0.8;
+      top: 22px;
+      width: 22px;
+      height: 30px;
+      border: 1.8px solid var(--peach);
+      border-radius: 50%;
+      transform: rotate(30deg);
+      opacity: 0.85;
+    }
+
+    .bean-line::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      bottom: 3px;
+      left: 50%;
+      border-left: 1.8px solid var(--peach);
+      border-radius: 50%;
     }
 
     .menu-number {
@@ -598,19 +615,25 @@
       font-weight: 700;
     }
 
-    .menu-bottom button {
-      border: 0;
-      background: none;
+    .menu-add-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--orange);
+      background: transparent;
       color: var(--orange);
-      font-size: 14px;
+      font-size: 18px;
       font-weight: 700;
+      display: grid;
+      place-items: center;
       cursor: pointer;
-      padding: 6px 0;
-      transition: color 0.2s;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
     }
 
-    .menu-bottom button:hover {
-      color: #a84e11;
+    .menu-add-btn:hover {
+      background: var(--orange);
+      color: #fff;
+      transform: scale(1.08);
     }
 
     /* 5.5 來店資訊（左為 YouTube 影片嵌入，右為門市資訊） */
@@ -626,7 +649,7 @@
       align-items: center;
     }
 
-    /* 左側 YouTube 影片嵌入容器 */
+    /* 左側 YouTube 影片嵌入容器 (寬560px, 高315px, 編號 hMOYa4EBntI) */
     .video-card {
       position: relative;
       border-radius: 6px;
@@ -693,7 +716,7 @@
       color: var(--orange);
       text-decoration: underline;
       text-underline-offset: 3px;
-      transition: color 0.2s;
+      transition: color 0.2s ease;
     }
 
     .visit-detail a.map-link:hover {
@@ -763,11 +786,12 @@
       color: var(--peach);
     }
 
+    /* 規格要求：點擊地址連結至 Google Maps 僑光科技大學 */
     .footer-address-link {
       color: var(--peach) !important;
       text-decoration: underline;
       text-underline-offset: 3px;
-      transition: color 0.2s, opacity 0.2s;
+      transition: opacity 0.2s ease;
     }
 
     .footer-address-link:hover {
@@ -1008,6 +1032,10 @@
         display: none;
       }
 
+      .hero-caption {
+        display: none;
+      }
+
       .scroll-note {
         left: 17px;
       }
@@ -1087,7 +1115,7 @@
   </header>
 
   <main>
-    <!-- 5.2 Hero -->
+    <!-- 5.2 Hero (右欄使用既有圖片 images/hero.jpg，寬 400px，高 300px) -->
     <section class="hero" id="hero">
       <div class="wrap hero-grid">
         <div class="hero-copy reveal">
@@ -1100,6 +1128,7 @@
           </div>
           <div class="hero-caption">TAICHUNG · PET FRIENDLY · OPEN DAILY 10:00—19:00</div>
         </div>
+
         <div class="hero-visual reveal">
           <div class="hero-photo-wrap">
             <img class="hero-photo" src="images/hero.jpg" alt="溫馨的咖啡空間，窗外山景與桌上的手沖咖啡" width="400" height="300">
@@ -1148,6 +1177,7 @@
         </div>
         <div class="menu-grid">
           <article class="menu-card reveal">
+            <div class="bean-line" aria-hidden="true"></div>
             <div>
               <div class="menu-number">01 / HAND BREW</div>
               <div class="menu-icon" aria-hidden="true">☕</div>
@@ -1156,10 +1186,11 @@
             </div>
             <div class="menu-bottom">
               <strong>NT$ 180</strong>
-              <button type="button" data-item="橘光手沖" aria-label="將橘光手沖加入選購清單">＋ 加入清單</button>
+              <button type="button" class="menu-add-btn" data-item="橘光手沖" aria-label="將橘光手沖加入選購清單">＋</button>
             </div>
           </article>
           <article class="menu-card reveal">
+            <div class="bean-line" aria-hidden="true"></div>
             <div>
               <div class="menu-number">02 / HOUSE SPECIAL</div>
               <div class="menu-icon" aria-hidden="true">♡</div>
@@ -1168,10 +1199,11 @@
             </div>
             <div class="menu-bottom">
               <strong>NT$ 160</strong>
-              <button type="button" data-item="貓掌拿鐵" aria-label="將貓掌拿鐵加入選購清單">＋ 加入清單</button>
+              <button type="button" class="menu-add-btn" data-item="貓掌拿鐵" aria-label="將貓掌拿鐵加入選購清單">＋</button>
             </div>
           </article>
           <article class="menu-card reveal">
+            <div class="bean-line" aria-hidden="true"></div>
             <div>
               <div class="menu-number">03 / BAKED TODAY</div>
               <div class="menu-icon" aria-hidden="true">🍮</div>
@@ -1180,7 +1212,7 @@
             </div>
             <div class="menu-bottom">
               <strong>NT$ 120</strong>
-              <button type="button" data-item="曬太陽布丁" aria-label="將曬太陽布丁加入選購清單">＋ 加入清單</button>
+              <button type="button" class="menu-add-btn" data-item="曬太陽布丁" aria-label="將曬太陽布丁加入選購清單">＋</button>
             </div>
           </article>
         </div>
@@ -1202,6 +1234,7 @@
             allowfullscreen>
           </iframe>
         </div>
+
         <div class="visit-copy reveal">
           <div class="eyebrow">COME SAY MEOW</div>
           <h2>帶著你，<br>和你的<span class="accent">毛孩子</span>來坐坐</h2>
@@ -1211,7 +1244,11 @@
               <span class="icon" aria-hidden="true">⌖</span>
               <div>
                 <b>店址</b>
-                <span><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E5%83%91%E5%85%89%E7%A7%91%E6%8A%80%E5%A4%A7%E5%AD%B8" target="_blank" rel="noopener noreferrer">台中市西屯區僑光路 100 號</a></span>
+                <span>
+                  <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E5%83%91%E5%85%89%E7%A7%91%E6%8A%80%E5%A4%A7%E5%AD%B8" target="_blank" rel="noopener noreferrer" title="開啟 Google 地圖查看位置">
+                    台中市西屯區僑光路 100 號
+                  </a>
+                </span>
               </div>
             </div>
             <div class="visit-detail">
@@ -1229,7 +1266,7 @@
               </div>
             </div>
           </div>
-          <a class="btn btn-primary" href="mailto:hello@cattai.coffee?subject=貓太咖啡館預約">寫信預約午後　→</a>
+          <a class="btn btn-primary" href="mailto:hello@cattai.coffee?subject=貓太咖啡館預約">預約座位　→</a>
         </div>
       </div>
     </section>
@@ -1249,6 +1286,7 @@
           <h3>聯絡與詢問</h3>
           <ul>
             <li>
+              <!-- 規格要求：點擊 台中市西屯區僑光路 100 號 時，連結至 Google Maps：https://www.google.com/maps/search/?api=1&query=僑光科技大學 -->
               <a class="footer-address-link" href="https://www.google.com/maps/search/?api=1&query=%E5%83%91%E5%85%89%E7%A7%91%E6%8A%80%E5%A4%A7%E5%AD%B8" target="_blank" rel="noopener noreferrer" title="開啟 Google 地圖查看位置">
                 台中市西屯區僑光路 100 號
               </a>
@@ -1268,7 +1306,7 @@
       </div>
       <div class="footer-bottom">
         <span>© 2026 CAT TAI COFFEE. ALL RIGHTS RESERVED.</span>
-        <span>BREW SLOW · PURR LOUD</span>
+        <span>BREW SLOW · PURR LOUD.</span>
       </div>
     </div>
   </footer>
@@ -1301,7 +1339,7 @@
       link.addEventListener('click', closeNav);
     });
 
-    // 商品 Toast 提示
+    // 商品 Toast 提示 (1.8 秒，重設計時器)
     let toastTimer;
     const toast = document.querySelector('#toast');
 
@@ -1316,11 +1354,11 @@
 
     document.querySelectorAll('[data-item]').forEach(button => {
       button.addEventListener('click', () => {
-        showToast(`「${button.dataset.item}」已加入選購清單`);
+        showToast(`${button.dataset.item} 已加入選購清單`);
       });
     });
 
-    // 捲動進場觀察器
+    // 捲動進場觀察器 (IntersectionObserver threshold: 0.12)
     const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const revealElements = document.querySelectorAll('.reveal');
 
@@ -1343,4 +1381,3 @@
   </script>
 </body>
 </html>
-
